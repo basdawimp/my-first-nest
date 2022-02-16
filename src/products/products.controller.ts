@@ -39,4 +39,10 @@ export class ProductsController {
     this.productsService.updateProduct(prodId, prodTitle, prodDesc, prodPrice);
     return null;
   }
+
+  @Delete(';id')
+  removeProduct(@Param('id') prodId: string) {
+    this.productsService.deleteProduct(prodId);
+    return null;
+  }
 }
