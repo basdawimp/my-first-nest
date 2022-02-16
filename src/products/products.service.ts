@@ -3,7 +3,7 @@ import { Product } from './product.model';
 
 @Injectable()
 export class ProductsService {
-  products: Product[] = [];
+  private products: Product[] = [];
 
   insertProduct(title: string, desc: string, price: number): string {
     const prodId = new Date().toString();
