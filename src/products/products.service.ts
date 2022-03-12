@@ -22,7 +22,12 @@ export class ProductsService {
     return { ...product };
   }
 
-  updateProduct(productId: string, title: string, desc: string, price: number) {
+  updateProduct(
+    productId: string,
+    title: string,
+    desc: string,
+    price?: number,
+  ) {
     const [product, index] = this.findProduct(productId);
     const updatedProduct = { ...product };
     if (title) {
