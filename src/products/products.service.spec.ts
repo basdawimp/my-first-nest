@@ -15,4 +15,15 @@ describe('ProductsService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  describe('insertProduct', () => {
+    it("returns the inserted product's ID", () => {
+      const result = new Number();
+      jest
+        .spyOn(ProductsService, 'insertProduct')
+        .mockImplementation(() => result);
+
+      expect(service.insertProduct('a', 'a', 1)).toBe('1');
+    });
+  });
 });
