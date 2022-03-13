@@ -18,12 +18,13 @@ describe('ProductsService', () => {
 
   describe('insertProduct', () => {
     it("returns the inserted product's ID", () => {
-      const result = new Number();
-      jest
-        .spyOn(ProductsService, 'insertProduct')
-        .mockImplementation(() => result);
+      const result = 'test';
+      jest.mock('products.service', () => {
+        return jest.fn().mockReturnValue('1');
+      });
+      jest.spyOn(service, 'insertProduct').mockImplementation(() => result);
 
-      expect(service.insertProduct('a', 'a', 1)).toBe('1');
+      expect(service.insertProduct('a', 'a', 1)).toBe(result);
     });
   });
 });
